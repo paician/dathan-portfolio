@@ -77,7 +77,7 @@
                 <article class="card project-card js-modal-trigger" 
                         data-type="video"
                         data-video-id="NCJMWkthP74"
-
+                        data-desc="<p>Admin toolkit built with AutoIT to safely perform elevated installs. It wraps administrator credentials, automates common software setup and standard desktop tools, and reduces manual helpdesk work.</p>"
                         data-title="AutoIT Admin Suite"
                         data-i18n-desc="project-autoit-detail">
                   
@@ -375,10 +375,8 @@
               <iframe id="modal-iframe"
         src=""
         frameborder="0"
-        referrerpolicy="strict-origin-when-cross-origin"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowfullscreen></iframe>
-
 
               <img id="modal-image" src="" alt="Zoomed Image">
             </div>
@@ -574,32 +572,34 @@
         modalDesc.innerHTML = descHtml;
 
         // Reset States
-        modalWrapper.classList.remove('show-video', 'show-image');
-        modalImage.classList.remove('zoomed');
-        function extractYouTubeId(url) {
-  if (!url) return null;
+// Reset States
+modalWrapper.classList.remove('show-video', 'show-image');
+modalImage.classList.remove('zoomed');
+modalIframe.src = '';
+modalImage.src = '';
 
-  // 若直接塞 ID（例如 "NCJMWkthP74"）也支援
-  if (/^[a-zA-Z0-9_-]{6,}$/.test(url) && !url.includes("://")) {
-    return url;
+function extractYouTubeId(urlOrId) {
+  if (!urlOrId) return null;
+
+  // 如果本來就只有 ID
+  if (/^[a-zA-Z0-9_-]{6,}$/.test(urlOrId) && !urlOrId.includes('://')) {
+    return urlOrId;
   }
 
   try {
-    const u = new URL(url);
+    const u = new URL(urlOrId);
 
     // youtu.be/VIDEO_ID
-    if (u.hostname === "youtu.be") {
+    if (u.hostname === 'youtu.be') {
       return u.pathname.slice(1);
     }
 
     // youtube.com/embed/VIDEO_ID
-    const pathMatch = u.pathname.match(/\/embed\/([^/?]+)/);
-    if (pathMatch) {
-      return pathMatch[1];
-    }
+    const m = u.pathname.match(/\/embed\/([^/?]+)/);
+    if (m) return m[1];
 
     // youtube.com/watch?v=VIDEO_ID
-    const v = u.searchParams.get("v");
+    const v = u.searchParams.get('v');
     if (v) return v;
 
     return null;
@@ -607,28 +607,30 @@
     return null;
   }
 }
+
 if (type === 'video') {
   modalWrapper.classList.add('show-video');
 
-  const rawVideo = trigger.getAttribute('data-video') || "";
-  const videoId  = extractYouTubeId(rawVideo);
+  // 可以給 data-video-id 或 data-video(整個URL)，都會吃
+  const rawVideoId = trigger.getAttribute('data-video-id');
+  const rawVideoUrl = trigger.getAttribute('data-video');
+  const videoId = extractYouTubeId(rawVideoId || rawVideoUrl);
 
   if (videoId) {
-    // 用 youtube-nocookie，比較不容易踩到 153 問題
-    const embedUrl = `https://www.youtube-nocookie.com/embed/${videoId}`;
+    const embedUrl = `https://www.youtube.com/embed/${videoId}`;
     modalIframe.src = embedUrl;
-  } else {
-    // 萃不到就直接用原始字串當 fallback
-    modalIframe.src = rawVideo;
+  } else if (rawVideoUrl) {
+    // 萃不到就直接用原本提供的 src
+    modalIframe.src = rawVideoUrl;
   }
 
-  modalImage.src = "";
-
 } else {
+  // 圖片模式
   modalWrapper.classList.add('show-image');
-  modalImage.src = trigger.getAttribute('data-src');
-  modalIframe.src = "";
+  const imgSrc = trigger.getAttribute('data-src');
+  modalImage.src = imgSrc || '';
 }
+
 
 
 
