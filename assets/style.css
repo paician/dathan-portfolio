@@ -663,14 +663,24 @@ body.lang-zh [data-lang="en"] { display: none; }
   transition: all 0.3s ease;
 }
 
-.modal-media-wrapper iframe,
-.modal-media-wrapper img {
+/* 影片與圖片在 modal 裡的呈現 */
+
+.modal-media-wrapper iframe {
   width: 100%;
   height: 100%;
   display: block;
   border: none;
-  object-fit: cover;
 }
+
+/* 圖片則維持可縮放與置中顯示 */
+.modal-media-wrapper img {
+  max-width: 100%;
+  max-height: 80vh;
+  display: block;
+  border: none;
+  object-fit: contain;   /* 圖片用 contain，比較不會被裁切 */
+}
+
 
 /* 圖片預設狀態：縮放至適應視窗 */
 #modal-image {

@@ -16,14 +16,23 @@ const translations = {
     "project-autoit-short": "包含提權安裝、其他軟體自動化安裝。",
     "project-autoit-detail": "<strong>專案背景：</strong>為解決 Helpdesk 重複處理使用者權限不足無法安裝軟體的問題。<br><strong>技術亮點：</strong>使用 AutoIT 封裝 Administrator 憑證，並編譯為加密 EXE。",
     
+    "project-autoit2-short": "提權編輯你的主機設定檔。",
+    "project-autoit2-detail": "使用 AutoIT 封裝 Administrator 憑證，編輯你的主機設定檔。",
+    
     "project-sql-short": "讓非技術人員也能安全查詢資料庫的工具。",
     "project-log-short": "讓不熟悉指令的使用者也能查詢 Windows 事件紀錄。",
     "project-lark-short": "Lark Drive 加密等級批次修改與管理工具。",
+    "project-line-short": "監控Google雲端檔案變更時就發通知到Line",
+
+    "project-ps-short": "簡單地在Local端管理AD帳號及群組",
   
+
     // Websites
-    "web-vue-desc": "Lark Drive 雲端檔案加密等級管理主控台。",
+    "web-vue-desc": "Google Drive 雲端檔案分享管理主控台。",
     "btn-visit-site": "造訪網站",
-  
+    "web-vue-desc2": "今天的幸運數字是什麼呢？",
+    "btn-visit-site2": "造訪網站",
+
     // Solutions Main
     "sol-main-title": "企業解決方案",
     "sol-main-desc": "針對企業 IT 痛點開發的標準化產品，可快速部署至私有環境。",
