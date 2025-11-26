@@ -375,8 +375,10 @@
               <iframe id="modal-iframe"
         src=""
         frameborder="0"
+        referrerpolicy="strict-origin-when-cross-origin"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowfullscreen></iframe>
+
 
               <img id="modal-image" src="" alt="Zoomed Image">
             </div>
@@ -574,18 +576,59 @@
         // Reset States
         modalWrapper.classList.remove('show-video', 'show-image');
         modalImage.classList.remove('zoomed');
+        function extractYouTubeId(url) {
+  if (!url) return null;
 
-        if (type === 'video') {
-            modalWrapper.classList.add('show-video');
+  // 若直接塞 ID（例如 "NCJMWkthP74"）也支援
+  if (/^[a-zA-Z0-9_-]{6,}$/.test(url) && !url.includes("://")) {
+    return url;
+  }
 
-            const videoId = trigger.getAttribute('data-video-id');
+  try {
+    const u = new URL(url);
 
-            // 最安全、最不容易出錯的寫法：不加任何額外參數
-            const embedUrl = `https://www.youtube.com/embed/${videoId}`;
+    // youtu.be/VIDEO_ID
+    if (u.hostname === "youtu.be") {
+      return u.pathname.slice(1);
+    }
 
-            modalIframe.src = embedUrl;
-            modalImage.src = "";
-          }
+    // youtube.com/embed/VIDEO_ID
+    const pathMatch = u.pathname.match(/\/embed\/([^/?]+)/);
+    if (pathMatch) {
+      return pathMatch[1];
+    }
+
+    // youtube.com/watch?v=VIDEO_ID
+    const v = u.searchParams.get("v");
+    if (v) return v;
+
+    return null;
+  } catch (e) {
+    return null;
+  }
+}
+if (type === 'video') {
+  modalWrapper.classList.add('show-video');
+
+  const rawVideo = trigger.getAttribute('data-video') || "";
+  const videoId  = extractYouTubeId(rawVideo);
+
+  if (videoId) {
+    // 用 youtube-nocookie，比較不容易踩到 153 問題
+    const embedUrl = `https://www.youtube-nocookie.com/embed/${videoId}`;
+    modalIframe.src = embedUrl;
+  } else {
+    // 萃不到就直接用原始字串當 fallback
+    modalIframe.src = rawVideo;
+  }
+
+  modalImage.src = "";
+
+} else {
+  modalWrapper.classList.add('show-image');
+  modalImage.src = trigger.getAttribute('data-src');
+  modalIframe.src = "";
+}
 
 
 
