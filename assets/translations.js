@@ -7,7 +7,7 @@ const translations = {
     "nav-about": "關於我",
     "nav-filter": "技術棧篩選",
     "filter-all": "全部顯示",
-    "status-work": "求職中 / LARK接案中",
+    "status-work": "歡迎！",
   
     // Page Headers
     "page-desc-projects": "依照技術棧分類的精選自動化作品。",
