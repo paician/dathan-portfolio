@@ -510,7 +510,7 @@ button { font-family: inherit; }
 
 .modal-container {
   background: var(--main-bg);
-  width: 100%; max-width: 800px;
+  width: 100%; max-width: 960px;
   border-radius: 12px;
   overflow: hidden;
   position: relative;
@@ -610,12 +610,11 @@ body.lang-zh [data-lang="en"] { display: none; }
 /* Modal 內部切換邏輯 */
 .modal-media-wrapper {
   position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;      /* 核心：固定成 16:9 */
   background: #000;
-  display: flex; 
-  align-items: center; 
-  justify-content: center;
-  /* 預設高度給影片用，圖片時會被JS覆蓋 */
-  min-height: 200px; 
+  border-radius: 12px 12px 0 0;
+  overflow: hidden;
 }
 
 /* 預設隱藏 iframe 和 img */
@@ -662,6 +661,15 @@ body.lang-zh [data-lang="en"] { display: none; }
   background: #000;
   /* 增加過渡效果讓切換更滑順 */
   transition: all 0.3s ease;
+}
+
+.modal-media-wrapper iframe,
+.modal-media-wrapper img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  border: none;
+  object-fit: cover;
 }
 
 /* 圖片預設狀態：縮放至適應視窗 */
