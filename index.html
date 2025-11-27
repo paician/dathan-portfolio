@@ -11,7 +11,6 @@
     
     <div class="app-container">
       
-      <!-- ================= SIDEBAR ================= -->
       <aside class="sidebar">
         <div class="sidebar-header">
           <img src="assets/img/logo.png" alt="Logo" class="custom-logo">
@@ -53,7 +52,6 @@
         </div>
       </aside>
 
-      <!-- ================= MAIN CONTENT ================= -->
       <main class="main-content">
         <header class="top-bar">
           <div class="page-info">
@@ -67,7 +65,6 @@
       
         <div class="content-wrapper">
       
-          <!-- ================= VIEW: PROJECTS ================= -->
           <section id="view-projects" class="view-section active">
             
             <!-- Group: AutoIT -->
@@ -88,7 +85,7 @@
                   
                   <div class="card-body">
                     <h3 class="card-title">AutoIT Admin Suite</h3>
-                    <!-- 清理後：只剩一行，用 data-i18n 控制 -->
+                    
                     <p class="card-text" data-i18n="project-autoit-short">
                       Includes elevated-privilege installation and automated installation of other software.
                     </p>
@@ -110,7 +107,7 @@
                   
                   <div class="card-body">
                     <h3 class="card-title">AutoIT Admin Host Edito</h3>
-                    <!-- 清理後：只剩一行，用 data-i18n 控制 -->
+                    
                     <p class="card-text" data-i18n="project-autoit2-short">
                       Modify your Host file.
                     </p>
@@ -120,7 +117,7 @@
               </div>
             </div>
       
-            <!-- Group: Python -->
+            
             <div class="project-group" data-group="python">
               <h3 class="group-title">Python & Data Tools</h3>
               <div class="grid-container">
@@ -167,7 +164,7 @@
               </div>
             </div>
       
-            <!-- Group: Cloud -->
+            
             <div class="project-group" data-group="cloud">
               <h3 class="group-title">Cloud & Lark Automation</h3>
               <div class="grid-container">
@@ -211,7 +208,7 @@
               </div>
             </div>
 
-                        <!-- Group: Cloud -->
+            
                         <div class="project-group" data-group="powershell">
                           <h3 class="group-title">PowerShell</h3>
                           <div class="grid-container">
@@ -237,7 +234,7 @@
                         </div>
           </section>
 
-          <!-- ================= VIEW: WEBSITES ================= -->
+          
           <section id="view-websites" class="view-section">
             <div class="group-title" data-i18n="nav-websites">Web Works</div>
             <div class="grid-container">
@@ -276,7 +273,7 @@
             
           </section>
 
-          <!-- ================= VIEW: SOLUTIONS ================= -->
+          
           <section id="view-solutions" class="view-section">
             <div class="banner-card">
               <h2 data-i18n="sol-main-title">Enterprise Solutions</h2>
@@ -291,7 +288,7 @@
               </div>
               
               <div class="tab-content-box">
-                <!-- Sol 1: Lark Governance (With Gallery) -->
+                
                 <div class="tab-pane active" id="tab-sol-1">
                   <h3 data-i18n="sol-1-title">Lark Drive Governance Center</h3>
                   <p class="desc" data-i18n="sol-1-desc">Designed to solve enterprise Lark Drive permission chaos, providing a visual dashboard.</p>
@@ -300,13 +297,11 @@
                           data-type="video"
                           data-video-id="gfsQzpQm-og" 
                           data-title="Lark Governance Demo" 
-                          data-i18n-desc="sol-1-desc"> <!-- 復用 Sol 1 的描述 -->
+                          data-i18n-desc="sol-1-desc">
                     <span data-i18n="btn-view-video">▶ View Solution Video</span>
                   </button>
 
-                  <!-- Gallery Grid -->
                   <div class="gallery-grid">
-                    <!-- Image 1 -->
                     <div class="gallery-item js-modal-trigger"
                          data-type="image"
                          data-src="assets/img/security-label-dashboard.png" 
@@ -318,7 +313,7 @@
                       <div class="gallery-overlay"><span>🔍</span></div>
                     </div>
 
-                    <!-- Image 2 -->
+                    
                     <div class="gallery-item js-modal-trigger"
                          data-type="image"
                          data-src="assets/img/security-label-dashboard2.png" 
@@ -328,7 +323,7 @@
                       <div class="gallery-overlay"><span>🔍</span></div>
                     </div>
 
-                    <!-- Image 3 -->
+                    
                     <div class="gallery-item js-modal-trigger"
                          data-type="image"
                          data-src="https://placehold.co/800x600/1c1917/FFF?text=Auto+Labeling" 
@@ -340,7 +335,7 @@
                   </div>
                 </div>
 
-                <!-- Sol 2: Onboarding -->
+                
                 <div class="tab-pane" id="tab-sol-2">
                   <h3 data-i18n="sol-2-title">Auto Onboarding Console</h3>
                   <p class="desc" data-i18n="sol-2-desc">Integrated with the Lark approval system form; once internal approval is completed, the Lark account is created immediately.</p>
@@ -353,7 +348,7 @@
                   </button>
                 </div>
 
-                <!-- Sol 3: Alert Bots -->
+                
                 <div class="tab-pane" id="tab-sol-3">
                    <h3 data-i18n="sol-3-title">Smart Alert Bots</h3>
                    <p class="desc" data-i18n="sol-3-desc">Integrates Zabbix, Grafana, and Cloud Logs.</p>
@@ -362,7 +357,7 @@
             </div>
           </section>
 
-          <!-- ================= VIEW: ABOUT ME ================= -->
+          
           <section id="view-about" class="view-section">
             <div class="profile-header-card">
               <div class="profile-banner">
@@ -455,7 +450,7 @@
 
         </div> 
 
-        <!-- ================= UNIFIED MEDIA MODAL ================= -->
+        
         <div id="video-modal" class="modal-overlay">
           <div class="modal-container">
             <button class="modal-close">&times;</button>
@@ -478,59 +473,53 @@
       </main> 
     </div> 
 
-    <!-- Scripts (Translations + Logic) -->
-<!-- Scripts (Translations + Logic) -->
+    
 <script src="assets/translations.js"></script>
 <script>
   document.addEventListener('DOMContentLoaded', () => {
     
-    // ==========================================
-    // 1. i18n System (Language Logic)
-    // ==========================================
+    
     const langBtns = document.querySelectorAll('.lang-btn');
     const originalText = {};
     
-    // 1-1. Save initial English text from HTML
-    // 這一步必須最先做，把 HTML 裡的英文存起來，當作備份
+    
     document.querySelectorAll('[data-i18n]').forEach(el => {
       originalText[el.getAttribute('data-i18n')] = el.innerHTML;
     });
 
-    // 1-2. Main Function to Set Language
+
     function setLanguage(lang) {
       // 更新按鈕樣式
       langBtns.forEach(btn => {
         btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
       });
       
-      // 更新 Body Class (給 CSS 用)
+      
       document.body.className = lang === 'zh' ? 'lang-zh' : 'lang-en';
 
-      // 記憶使用者的選擇
+
       localStorage.setItem('site-lang', lang);
 
-      // 替換所有文字
+
       document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.getAttribute('data-i18n');
         if (lang === 'zh' && translations[key]) {
           el.innerHTML = translations[key];
         } else {
-          // 如果是英文，或是找不到翻譯，就還原回原本的 HTML
+        
           if (originalText[key]) {
             el.innerHTML = originalText[key];
           }
         }
       });
     }
-
-    // 1-3. Bind Click Events
+    
     langBtns.forEach(btn => {
       btn.addEventListener('click', () => {
         setLanguage(btn.getAttribute('data-lang'));
       });
     });
 
-    // 1-4. Auto Detect Language on Load (關鍵修正)
     function initLanguage() {
       // 優先讀取使用者之前的設定
       const savedLang = localStorage.getItem('site-lang');
@@ -549,13 +538,9 @@
       }
     }
     
-    // 執行初始化
     initLanguage();
 
 
-    // ==========================================
-    // 2. Navigation Logic
-    // ==========================================
     const navLinks = document.querySelectorAll('.nav-item:not(.filter-btn)');
     const sections = document.querySelectorAll('.view-section');
     const pageTitle = document.getElementById('page-title');
@@ -573,8 +558,6 @@
           if(sec.id === `view-${target}`) sec.classList.add('active');
         });
 
-        // Update Title (Get text from the span inside link to support translation)
-        // 這裡抓取 span 裡的文字，因為 span 已經被 i18n 翻譯過了
         const titleSpan = link.querySelector('[data-i18n]');
         if(titleSpan) pageTitle.innerText = titleSpan.innerText;
 
@@ -585,9 +568,6 @@
       });
     });
 
-    // ==========================================
-    // 3. Filter Logic
-    // ==========================================
     const filterBtns = document.querySelectorAll('.filter-btn');
     const projectGroups = document.querySelectorAll('.project-group');
     const projectsLink = document.querySelector('.nav-item[data-target="projects"]');
@@ -603,9 +583,6 @@
       });
     });
 
-    // ==========================================
-    // 4. Tabs Logic
-    // ==========================================
     const tabBtns = document.querySelectorAll('.tab-btn');
     const tabPanes = document.querySelectorAll('.tab-pane');
     tabBtns.forEach(btn => {
@@ -617,9 +594,6 @@
       });
     });
 
-    // ==========================================
-    // 5. Unified Modal Logic
-    // ==========================================
     const modal = document.getElementById('video-modal');
     const modalWrapper = document.getElementById('modal-media-wrapper');
     const modalIframe = document.getElementById('modal-iframe');
@@ -628,7 +602,6 @@
     const modalDesc = document.getElementById('modal-desc');
     const modalCloseBtn = document.querySelector('.modal-close');
     
-    // Image Zoom Toggle
     modalImage.addEventListener('click', function(e) {
       e.stopPropagation();
       this.classList.toggle('zoomed');
@@ -647,20 +620,15 @@
         const isZh = document.body.classList.contains('lang-zh');
         let descHtml = trigger.getAttribute('data-desc') || ''; 
 
-        // 如果有 key 且是中文模式，優先用翻譯
         if (descKey && translations[descKey] && isZh) {
            descHtml = translations[descKey];
         } else if (descKey && translations[descKey] && !isZh) {
-           // 如果是英文模式，可以選擇顯示 data-desc (通常是英文) 
-           // 或者是 translations 裡的預設文字 (如果 translations 只有中文就會出錯，所以這裡 fallback 到 data-desc)
            descHtml = trigger.getAttribute('data-desc') || '';
         }
 
         modalTitle.innerText = titleText;
         modalDesc.innerHTML = descHtml;
 
-        // Reset States
-// Reset States
 modalWrapper.classList.remove('show-video', 'show-image');
 modalImage.classList.remove('zoomed');
 modalIframe.src = '';
@@ -669,7 +637,6 @@ modalImage.src = '';
 function extractYouTubeId(urlOrId) {
   if (!urlOrId) return null;
 
-  // 如果本來就只有 ID
   if (/^[a-zA-Z0-9_-]{6,}$/.test(urlOrId) && !urlOrId.includes('://')) {
     return urlOrId;
   }
@@ -677,16 +644,14 @@ function extractYouTubeId(urlOrId) {
   try {
     const u = new URL(urlOrId);
 
-    // youtu.be/VIDEO_ID
     if (u.hostname === 'youtu.be') {
       return u.pathname.slice(1);
     }
-
-    // youtube.com/embed/VIDEO_ID
+    
     const m = u.pathname.match(/\/embed\/([^/?]+)/);
     if (m) return m[1];
 
-    // youtube.com/watch?v=VIDEO_ID
+    
     const v = u.searchParams.get('v');
     if (v) return v;
 
@@ -699,7 +664,6 @@ function extractYouTubeId(urlOrId) {
 if (type === 'video') {
   modalWrapper.classList.add('show-video');
 
-  // 可以給 data-video-id 或 data-video(整個URL)，都會吃
   const rawVideoId = trigger.getAttribute('data-video-id');
   const rawVideoUrl = trigger.getAttribute('data-video');
   const videoId = extractYouTubeId(rawVideoId || rawVideoUrl);
@@ -708,12 +672,10 @@ if (type === 'video') {
     const embedUrl = `https://www.youtube.com/embed/${videoId}`;
     modalIframe.src = embedUrl;
   } else if (rawVideoUrl) {
-    // 萃不到就直接用原本提供的 src
     modalIframe.src = rawVideoUrl;
   }
 
 } else {
-  // 圖片模式
   modalWrapper.classList.add('show-image');
   const imgSrc = trigger.getAttribute('data-src');
   modalImage.src = imgSrc || '';
