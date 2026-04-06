@@ -1,24 +1,1104 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dathan Li | Automation Dev Portfolio</title>
-    <meta name="description" content="Dathan Li — System Administrator & Automation Specialist. Portfolio showcasing AutoIT, Python, Lark, and PowerShell projects." />
-    <meta name="author" content="Dathan Li" />
-    <meta property="og:title" content="Dathan Li | Automation Dev Portfolio" />
-    <meta property="og:description" content="System Administrator & Automation Specialist — AutoIT, Python, Lark & PowerShell projects" />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>李宗發 Dathan Li｜企業流程整合／自動化平台工程師</title>
+<meta name="description" content="具 9+ 年 IT 維運、自動化開發與跨系統整合經驗的平台工程師。專注 API Integration、Workflow Architecture、IAM/Access Control 與 Policy-driven Platform 設計。">
+<meta name="keywords" content="企業流程整合, 自動化平台工程師, API Integration, Workflow Architecture, IAM, Access Control, Lark, Anycross">
+<meta property="og:title" content="李宗發 Dathan Li｜企業流程整合／自動化平台工程師">
+<meta property="og:description" content="將分散、人工、不可追蹤的企業流程，重構為可執行、可稽核、可維運的平台型 workflow 與權限治理系統。">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@Lovable" />
-    <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
-    <script type="module" crossorigin src="/assets/index-Bv0U1lea.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-NXwY-Im9.css">
-  </head>
+  :root {
+    --navy: #0A1628;
+    --navy-80: #1A2840;
+    --navy-60: #243352;
+    --slate: #334155;
+    --slate-mid: #475569;
+    --slate-light: #64748B;
+    --muted: #94A3B8;
+    --subtle: #CBD5E1;
+    --border: #E2E8F0;
+    --surface: #F8FAFC;
+    --white: #FFFFFF;
+    --accent: #1E6FD9;
+    --accent-dim: #EFF6FF;
+    --accent-mid: #3B82F6;
+    --green: #059669;
+    --green-dim: #ECFDF5;
+    --amber: #D97706;
+    --amber-dim: #FFFBEB;
+    --mono: 'DM Mono', monospace;
+    --sans: 'DM Sans', system-ui, sans-serif;
+    --radius-sm: 4px;
+    --radius: 8px;
+    --radius-lg: 12px;
+    --radius-xl: 16px;
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+    --shadow: 0 4px 12px rgba(0,0,0,0.06), 0 1px 4px rgba(0,0,0,0.04);
+  }
 
-  <body>
-    <div id="root"></div>
-  </body>
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--sans);
+    font-size: 15px;
+    line-height: 1.65;
+    color: var(--slate);
+    background: var(--white);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* NAV */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-inner {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .nav-brand {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--navy);
+    letter-spacing: 0.01em;
+    text-decoration: none;
+  }
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+  .nav-links a {
+    font-size: 13px;
+    color: var(--slate-mid);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+    transition: color 0.15s;
+  }
+  .nav-links a:hover { color: var(--navy); }
+
+  /* SECTIONS */
+  section { padding: 5rem 2rem; }
+  .container { max-width: 1080px; margin: 0 auto; }
+
+  /* HERO */
+  #hero {
+    padding: 6rem 2rem 5rem;
+    background: var(--white);
+  }
+  .hero-inner { max-width: 1080px; margin: 0 auto; }
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--accent-dim);
+    color: var(--accent);
+    font-size: 11px;
+    font-family: var(--mono);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    border-radius: var(--radius-sm);
+    margin-bottom: 1.5rem;
+  }
+  .hero-badge::before {
+    content: '';
+    display: block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+  }
+  h1.hero-name {
+    font-size: clamp(2.4rem, 5vw, 3.8rem);
+    font-weight: 300;
+    color: var(--navy);
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    margin-bottom: 0.4rem;
+  }
+  .hero-name em {
+    font-style: normal;
+    font-weight: 500;
+    color: var(--accent);
+  }
+  .hero-title {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    font-weight: 400;
+    color: var(--slate-mid);
+    margin-bottom: 1rem;
+    letter-spacing: 0.01em;
+  }
+  .hero-subtitle {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 2rem;
+  }
+  .tag-chip {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    color: var(--slate);
+    font-size: 12px;
+    font-family: var(--mono);
+    padding: 4px 10px;
+    border-radius: var(--radius-sm);
+    letter-spacing: 0.02em;
+  }
+  .hero-summary {
+    max-width: 640px;
+    color: var(--slate-mid);
+    font-size: 15px;
+    line-height: 1.8;
+    margin-bottom: 2.5rem;
+    border-left: 3px solid var(--accent);
+    padding-left: 1.25rem;
+  }
+  .hero-cta {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+  .btn-primary {
+    background: var(--navy);
+    color: var(--white);
+    font-size: 13px;
+    font-weight: 500;
+    padding: 0.6rem 1.4rem;
+    border-radius: var(--radius);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+    transition: background 0.15s, transform 0.1s;
+    display: inline-block;
+  }
+  .btn-primary:hover { background: var(--navy-60); transform: translateY(-1px); }
+  .btn-outline {
+    background: transparent;
+    color: var(--slate);
+    font-size: 13px;
+    font-weight: 400;
+    padding: 0.6rem 1.4rem;
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+    transition: border-color 0.15s, color 0.15s, transform 0.1s;
+    display: inline-block;
+  }
+  .btn-outline:hover { border-color: var(--slate-mid); color: var(--navy); transform: translateY(-1px); }
+
+  /* DIVIDER */
+  .divider {
+    max-width: 1080px;
+    margin: 0 auto;
+    border: none;
+    border-top: 1px solid var(--border);
+  }
+
+  /* SECTION HEADER */
+  .section-label {
+    font-size: 11px;
+    font-family: var(--mono);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.5rem;
+  }
+  h2.section-title {
+    font-size: clamp(1.4rem, 3vw, 1.9rem);
+    font-weight: 400;
+    color: var(--navy);
+    letter-spacing: -0.01em;
+    margin-bottom: 0.75rem;
+  }
+  .section-desc {
+    color: var(--slate-mid);
+    font-size: 14px;
+    max-width: 520px;
+    margin-bottom: 2.5rem;
+  }
+
+  /* METRICS */
+  #metrics { background: var(--surface); }
+  .metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+  }
+  .metric-card {
+    background: var(--white);
+    padding: 1.75rem 1.5rem;
+  }
+  .metric-num {
+    font-size: 2.2rem;
+    font-weight: 300;
+    color: var(--navy);
+    letter-spacing: -0.03em;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+  }
+  .metric-num span {
+    font-size: 1.2rem;
+    color: var(--accent);
+    font-weight: 500;
+  }
+  .metric-label {
+    font-size: 13px;
+    color: var(--slate-mid);
+    line-height: 1.5;
+  }
+  .metric-context {
+    font-size: 11px;
+    font-family: var(--mono);
+    color: var(--muted);
+    margin-top: 0.4rem;
+    letter-spacing: 0.02em;
+  }
+
+  /* WHAT I BUILD */
+  #what { background: var(--white); }
+  .build-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1rem;
+  }
+  .build-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+    position: relative;
+    overflow: hidden;
+    transition: box-shadow 0.2s, border-color 0.2s;
+  }
+  .build-card:hover {
+    box-shadow: var(--shadow);
+    border-color: var(--subtle);
+  }
+  .build-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--accent);
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+  .build-card:hover::before { opacity: 1; }
+  .build-icon {
+    width: 36px;
+    height: 36px;
+    background: var(--accent-dim);
+    border-radius: var(--radius);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+  }
+  .build-icon svg { width: 18px; height: 18px; color: var(--accent); }
+  .build-card h3 {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--navy);
+    margin-bottom: 0.6rem;
+    letter-spacing: 0.01em;
+  }
+  .build-card p {
+    font-size: 13px;
+    color: var(--slate-mid);
+    line-height: 1.65;
+    margin-bottom: 0.8rem;
+  }
+  .build-value {
+    font-size: 12px;
+    font-family: var(--mono);
+    color: var(--accent);
+    letter-spacing: 0.02em;
+  }
+
+  /* PROJECTS */
+  #projects { background: var(--surface); }
+  .projects-list { display: grid; gap: 1rem; }
+  .project-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 1.5rem;
+    align-items: start;
+    transition: box-shadow 0.2s, border-color 0.2s;
+    position: relative;
+  }
+  .project-card:hover {
+    box-shadow: var(--shadow);
+    border-color: var(--subtle);
+  }
+  .project-index {
+    font-size: 11px;
+    font-family: var(--mono);
+    color: var(--muted);
+    letter-spacing: 0.06em;
+    margin-bottom: 0.75rem;
+  }
+  .project-card h3 {
+    font-size: 1.05rem;
+    font-weight: 500;
+    color: var(--navy);
+    margin-bottom: 0.35rem;
+    letter-spacing: -0.01em;
+  }
+  .project-card .en-sub {
+    font-size: 12px;
+    font-family: var(--mono);
+    color: var(--accent);
+    letter-spacing: 0.02em;
+    margin-bottom: 1rem;
+  }
+  .project-card p {
+    font-size: 13.5px;
+    color: var(--slate-mid);
+    line-height: 1.7;
+    margin-bottom: 1rem;
+  }
+  .project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+  .ptag {
+    font-size: 11px;
+    font-family: var(--mono);
+    padding: 3px 8px;
+    border-radius: var(--radius-sm);
+    background: var(--surface);
+    border: 1px solid var(--border);
+    color: var(--slate-mid);
+    letter-spacing: 0.02em;
+  }
+  .ptag.highlight {
+    background: var(--accent-dim);
+    border-color: #BFDBFE;
+    color: var(--accent);
+  }
+  .project-badge {
+    display: inline-block;
+    font-size: 11px;
+    font-family: var(--mono);
+    padding: 4px 10px;
+    border-radius: var(--radius-sm);
+    background: var(--green-dim);
+    color: var(--green);
+    border: 1px solid #A7F3D0;
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+    align-self: start;
+  }
+  .project-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: flex-end;
+  }
+  .project-highlight-stat {
+    font-size: 12px;
+    font-family: var(--mono);
+    color: var(--slate-light);
+    text-align: right;
+  }
+  .project-highlight-stat strong {
+    display: block;
+    font-size: 1.2rem;
+    font-weight: 300;
+    color: var(--navy);
+    letter-spacing: -0.02em;
+    font-family: var(--sans);
+  }
+
+  /* HOW I WORK */
+  #method { background: var(--white); }
+  .method-list { display: grid; gap: 0; }
+  .method-item {
+    display: grid;
+    grid-template-columns: 40px 1fr;
+    gap: 1.25rem;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid var(--border);
+    align-items: start;
+  }
+  .method-item:last-child { border-bottom: none; }
+  .method-num {
+    font-size: 11px;
+    font-family: var(--mono);
+    color: var(--muted);
+    letter-spacing: 0.06em;
+    padding-top: 2px;
+  }
+  .method-item h3 {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--navy);
+    margin-bottom: 0.35rem;
+  }
+  .method-item p {
+    font-size: 13px;
+    color: var(--slate-mid);
+    line-height: 1.65;
+  }
+
+  /* EXPERIENCE */
+  #experience { background: var(--surface); }
+  .timeline { position: relative; padding-left: 1.5rem; }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 8px;
+    bottom: 8px;
+    width: 1px;
+    background: var(--border);
+  }
+  .timeline-item {
+    position: relative;
+    padding-bottom: 2.5rem;
+  }
+  .timeline-item:last-child { padding-bottom: 0; }
+  .timeline-dot {
+    position: absolute;
+    left: -1.875rem;
+    top: 6px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--accent);
+    border: 2px solid var(--white);
+    box-shadow: 0 0 0 1px var(--accent);
+  }
+  .timeline-period {
+    font-size: 11px;
+    font-family: var(--mono);
+    color: var(--muted);
+    letter-spacing: 0.06em;
+    margin-bottom: 0.4rem;
+  }
+  .timeline-company {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--navy);
+    margin-bottom: 0.15rem;
+  }
+  .timeline-role {
+    font-size: 13px;
+    color: var(--accent);
+    margin-bottom: 0.75rem;
+    font-family: var(--mono);
+    letter-spacing: 0.02em;
+  }
+  .timeline-points {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+  .timeline-points li {
+    font-size: 13px;
+    color: var(--slate-mid);
+    padding-left: 1rem;
+    position: relative;
+    line-height: 1.6;
+  }
+  .timeline-points li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--subtle);
+    font-size: 12px;
+  }
+
+  /* STACK */
+  #stack { background: var(--white); }
+  .stack-groups { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; }
+  .stack-group h4 {
+    font-size: 11px;
+    font-family: var(--mono);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 0.65rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .stack-tags { display: flex; flex-wrap: wrap; gap: 5px; }
+  .stack-tag {
+    font-size: 12px;
+    font-family: var(--mono);
+    padding: 3px 8px;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border);
+    color: var(--slate);
+    background: var(--surface);
+    letter-spacing: 0.01em;
+  }
+
+  /* CONTACT */
+  #contact {
+    background: var(--navy);
+    color: var(--white);
+  }
+  #contact .section-label { color: #60A5FA; }
+  #contact h2.section-title { color: var(--white); }
+  #contact .section-desc { color: #94A3B8; }
+  .contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 0.75rem;
+    margin-bottom: 2rem;
+  }
+  .contact-link {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: var(--radius);
+    padding: 1rem 1.25rem;
+    text-decoration: none;
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 13px;
+    transition: background 0.15s, border-color 0.15s;
+  }
+  .contact-link:hover {
+    background: rgba(255,255,255,0.08);
+    border-color: rgba(255,255,255,0.2);
+  }
+  .contact-link .link-label {
+    font-size: 11px;
+    font-family: var(--mono);
+    color: #60A5FA;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 2px;
+  }
+  .contact-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: var(--radius-sm);
+    background: rgba(255,255,255,0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .contact-icon svg { width: 16px; height: 16px; }
+
+  /* FOOTER */
+  footer {
+    background: var(--navy-80);
+    padding: 1.5rem 2rem;
+    text-align: center;
+  }
+  footer p {
+    font-size: 12px;
+    font-family: var(--mono);
+    color: #475569;
+    letter-spacing: 0.04em;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 640px) {
+    section { padding: 3.5rem 1.25rem; }
+    #hero { padding: 4rem 1.25rem 3rem; }
+    .nav-links { display: none; }
+    .project-card {
+      grid-template-columns: 1fr;
+    }
+    .project-meta { align-items: flex-start; }
+    .metric-num { font-size: 1.8rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="#hero" class="nav-brand">Dathan Li</a>
+    <ul class="nav-links">
+      <li><a href="#metrics">成果</a></li>
+      <li><a href="#what">能力範疇</a></li>
+      <li><a href="#projects">代表專案</a></li>
+      <li><a href="#method">方法論</a></li>
+      <li><a href="#experience">經歷</a></li>
+      <li><a href="#contact">聯絡</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-inner">
+    <div class="hero-badge">Platform Engineer · 9+ Years</div>
+    <h1 class="hero-name">李宗發<br><em>Dathan Li</em></h1>
+    <p class="hero-title">企業流程整合／自動化平台工程師</p>
+    <div class="hero-subtitle">
+      <span class="tag-chip">API Integration</span>
+      <span class="tag-chip">Workflow Architecture</span>
+      <span class="tag-chip">IAM / Access Control</span>
+      <span class="tag-chip">Policy-driven Platform</span>
+    </div>
+    <p class="hero-summary">
+      具 9+ 年 IT 維運、自動化開發與跨系統整合經驗，從 Windows Server / AD / 權限治理起步，逐步發展至 Python、PowerShell、Webhook 與 API Integration，專注於將分散、人工、不可追蹤的企業流程，重構為可執行、可稽核、可維運的平台型 workflow 與權限治理系統。
+    </p>
+    <div class="hero-cta">
+      <a href="#projects" class="btn-primary">Selected Projects</a>
+      <a href="#contact" class="btn-outline">Contact</a>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- KEY METRICS -->
+<section id="metrics">
+  <div class="container">
+    <p class="section-label">Key Impact</p>
+    <h2 class="section-title">可量化的交付成果</h2>
+    <p class="section-desc">以下指標來自實際落地的整合與自動化平台專案，而非 PoC 或測試環境。</p>
+    <div class="metrics-grid">
+      <div class="metric-card">
+        <div class="metric-num">20<span>%↓</span></div>
+        <div class="metric-label">高業務量部門人工作業時間下降</div>
+        <div class="metric-context">Workflow Integration Platform</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-num">50<span>%↓</span></div>
+        <div class="metric-label">財務部門權限流程作業時間縮短</div>
+        <div class="metric-context">IAM / Approval Workflow</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-num">2<span>mo</span></div>
+        <div class="metric-label">子公司入離職流程完整平台化導入</div>
+        <div class="metric-context">Onboarding / Offboarding Platform</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-num">50<span>%↓</span></div>
+        <div class="metric-label">HR / IT 跨部門溝通與追蹤成本下降</div>
+        <div class="metric-context">Cross-system Notification & Sync</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- WHAT I BUILD -->
+<section id="what">
+  <div class="container">
+    <p class="section-label">Capabilities</p>
+    <h2 class="section-title">我解決的問題類型</h2>
+    <p class="section-desc">不是技術清單，而是企業場景中可交付的系統能力。</p>
+    <div class="build-grid">
+
+      <div class="build-card">
+        <div class="build-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="3" width="20" height="14" rx="2"/><polyline points="8 21 12 17 16 21"/><line x1="12" y1="17" x2="12" y2="21"/>
+          </svg>
+        </div>
+        <h3>Workflow Platforms</h3>
+        <p>將跨部門的人工流程設計為可觸發、可追蹤、可審計的自動化 workflow 系統，涵蓋通知、審批、資料同步與例外處理。</p>
+        <div class="build-value">Trigger-driven · Auditable · Recoverable</div>
+      </div>
+
+      <div class="build-card">
+        <div class="build-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>
+          </svg>
+        </div>
+        <h3>API / SaaS Integration</h3>
+        <p>串接 Lark、Outlook、Freshservice、HR 系統、財務平台等，建立資料流轉與跨平台事件同步，消除系統孤島。</p>
+        <div class="build-value">REST API · Webhook · Event-driven</div>
+      </div>
+
+      <div class="build-card">
+        <div class="build-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+          </svg>
+        </div>
+        <h3>IAM / Access Control</h3>
+        <p>設計可配置的動態權限管理系統，支援 RBAC / ABAC 策略、Row-Level / Column-Level Security 與零信任存取原則。</p>
+        <div class="build-value">Policy Engine · Zero-Trust · ISO 27001-grade</div>
+      </div>
+
+      <div class="build-card">
+        <div class="build-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/>
+          </svg>
+        </div>
+        <h3>Audit-ready Internal Portals</h3>
+        <p>建立具備留痕機制、操作紀錄與角色分工的企業內部管理介面，確保流程稽核合規且可觀測。</p>
+        <div class="build-value">Traceability · Role Separation · Governance</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="container">
+    <p class="section-label">Selected Projects</p>
+    <h2 class="section-title">代表性專案</h2>
+    <p class="section-desc">以下四個專案代表不同維度的平台整合能力，依重要性排序。</p>
+    <div class="projects-list">
+
+      <!-- Project 1 -->
+      <div class="project-card">
+        <div>
+          <div class="project-index">01 / IAM Platform</div>
+          <h3>企業級動態身分與存取管理系統（IAM Portal）</h3>
+          <div class="en-sub">Policy-driven IAM Portal for Enterprise Access Governance</div>
+          <p>
+            以 Lark Base 作為 Policy Engine 與資料層，Anycross 作為 BaaS / API Gateway，建立可配置、可治理的動態權限管理系統。採 View-Logic Separation 與 Serverless 維運思路，支援 RBAC / ABAC-style 權限矩陣，並實作 Row-Level Security 與 Column-Level Security。透過 Event-driven workflow 驅動審批同步（Approval Synchronization），確保 ISO 27001 等級的稽核軌跡。以 Low-code / Pro-code Hybrid 方式落地 Portal 化治理，實現 Zero-Trust 存取原則下的企業級權限控管。
+          </p>
+          <div class="project-tags">
+            <span class="ptag highlight">RBAC / ABAC</span>
+            <span class="ptag highlight">Zero-Trust</span>
+            <span class="ptag highlight">Row-Level / Column-Level Security</span>
+            <span class="ptag">Lark Base</span>
+            <span class="ptag">Anycross / BaaS</span>
+            <span class="ptag">Event-driven Workflow</span>
+            <span class="ptag">Approval Sync</span>
+            <span class="ptag">ISO 27001-grade</span>
+            <span class="ptag">Low-code / Pro-code Hybrid</span>
+            <span class="ptag">Serverless</span>
+            <span class="ptag">Portal 化治理</span>
+          </div>
+        </div>
+        <div class="project-meta">
+          <span class="project-badge">Core Platform</span>
+          <div class="project-highlight-stat">
+            <strong>IAM</strong>
+            Policy Engine
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 2 -->
+      <div class="project-card">
+        <div>
+          <div class="project-index">02 / Workflow Integration</div>
+          <h3>Lark / Anycross 企業流程整合系統</h3>
+          <div class="en-sub">Enterprise Workflow Integration across Lark Ecosystem</div>
+          <p>
+            以 Lark、Base、Anycross、Outlook、Freshservice 為整合核心，將原先依賴 Email、人工通知與手動追蹤的跨部門流程，重構為可觸發的自動化 workflow。涵蓋通知推播、評論同步、資料流轉與跨平台 API 串接，並延伸出財務部門的權限審批模組。落地後高業務量部門人工作業時間下降 20%、子公司入離職流程 2 個月完整平台化導入、HR / IT 溝通成本下降 50%。整體設計強調權限安全、角色分工與可追蹤性。
+          </p>
+          <div class="project-tags">
+            <span class="ptag highlight">-20% 人工作業</span>
+            <span class="ptag highlight">-50% HR/IT 溝通成本</span>
+            <span class="ptag highlight">-50% 財務權限流程</span>
+            <span class="ptag">Lark / Base</span>
+            <span class="ptag">Anycross</span>
+            <span class="ptag">Outlook</span>
+            <span class="ptag">Freshservice</span>
+            <span class="ptag">入離職平台化</span>
+            <span class="ptag">跨平台 API 串接</span>
+          </div>
+        </div>
+        <div class="project-meta">
+          <span class="project-badge">Delivered</span>
+          <div class="project-highlight-stat">
+            <strong>2mo</strong>
+            子公司導入
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 3 -->
+      <div class="project-card">
+        <div>
+          <div class="project-index">03 / Private AI PoC</div>
+          <h3>企業私有 AI Workflow 基礎架構</h3>
+          <div class="en-sub">Private AI Workflow Foundation</div>
+          <p>
+            聚焦於企業私有化部署、資料流向管控與安全邊界設計，而非 chatbot 功能展示。以 Private Host 方案確保知識查詢、工作流輔助判斷與 Internal API Integration 的資料不外洩。AI 作為輔助判斷層可銜接 knowledge query 與 internal workflow tooling，整合至既有流程，而非獨立產品。
+          </p>
+          <div class="project-tags">
+            <span class="ptag highlight">Private Host</span>
+            <span class="ptag highlight">Data Boundary Control</span>
+            <span class="ptag">企業私有化部署</span>
+            <span class="ptag">Workflow Tooling</span>
+            <span class="ptag">Internal API Integration</span>
+            <span class="ptag">Security Boundary</span>
+          </div>
+        </div>
+        <div class="project-meta">
+          <span class="project-badge">PoC</span>
+        </div>
+      </div>
+
+      <!-- Project 4 -->
+      <div class="project-card">
+        <div>
+          <div class="project-index">04 / Internal Tooling</div>
+          <h3>Software Installer 套裝提權安裝介面</h3>
+          <div class="en-sub">Privilege-assisted Software Installation Utility</div>
+          <p>
+            針對無管理員權限的終端使用者設計的安裝請求輔助工具，透過受控的提權機制允許特定軟體安裝，有效降低重複性 IT 支援負擔。作為早期補充案例，展示對使用者場景與安全邊界的基礎思考。
+          </p>
+          <div class="project-tags">
+            <span class="ptag">Privilege Management</span>
+            <span class="ptag">IT Support Automation</span>
+            <span class="ptag">Security Boundary</span>
+            <span class="ptag">Internal Tooling</span>
+          </div>
+        </div>
+        <div class="project-meta">
+          <span class="project-badge" style="background: var(--amber-dim); color: var(--amber); border-color: #FDE68A;">Early Work</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- HOW I WORK -->
+<section id="method">
+  <div class="container">
+    <p class="section-label">Methodology</p>
+    <h2 class="section-title">工作方法論</h2>
+    <p class="section-desc">技術選型之前，先釐清業務目標與流程斷點。</p>
+    <div class="method-list">
+
+      <div class="method-item">
+        <span class="method-num">01</span>
+        <div>
+          <h3>從業務目標出發，而非技術選型</h3>
+          <p>先釐清流程斷點、受影響角色與不可追蹤的代價，再決定是否需要 workflow、API 串接或權限治理層。技術是手段，不是目的。</p>
+        </div>
+      </div>
+
+      <div class="method-item">
+        <span class="method-num">02</span>
+        <div>
+          <h3>先上線可運作，再補強治理層</h3>
+          <p>優先確保流程可執行、可觀測，再逐步疊加稽核軌跡、例外處理與權限管控，避免未落地前的過度工程化。</p>
+        </div>
+      </div>
+
+      <div class="method-item">
+        <span class="method-num">03</span>
+        <div>
+          <h3>權限、審批、留痕是同一個系統問題</h3>
+          <p>不把 IAM、流程審批與資料稽核視為獨立模組；可治理的系統必須同時考慮誰能做什麼、做了要留記錄、異常要能被發現。</p>
+        </div>
+      </div>
+
+      <div class="method-item">
+        <span class="method-num">04</span>
+        <div>
+          <h3>不迷信 low-code 或 AI，重點是可維運性</h3>
+          <p>工具選型標準是：能否在企業封閉環境中長期維運、由不同人接手維護、在組織變動後仍保持一致。Low-code / Pro-code Hybrid 是手段，不是目的。</p>
+        </div>
+      </div>
+
+      <div class="method-item">
+        <span class="method-num">05</span>
+        <div>
+          <h3>企業封閉環境中的安全邊界不是可選項</h3>
+          <p>所有整合設計都要考慮資料流向、存取授權與最小權限原則。對 Private AI、SaaS 整合與跨系統資料同步，安全邊界從設計階段就是必要條件。</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="container">
+    <p class="section-label">Experience</p>
+    <h2 class="section-title">核心經歷</h2>
+    <p class="section-desc">聚焦兩段關鍵職涯，呈現能力演進脈絡。</p>
+    <div class="timeline">
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-period">2024/12 — Present</div>
+        <div class="timeline-company">海科科技有限公司</div>
+        <div class="timeline-role">系統管理工程師／企業流程自動化整合</div>
+        <ul class="timeline-points">
+          <li>設計與落地企業流程整合與 Workflow 平台，涵蓋 Lark / Base / Outlook / Freshservice 跨系統串接</li>
+          <li>建立 IAM Portal 與動態權限治理系統，財務部門權限審批流程作業時間縮短 50%</li>
+          <li>子公司入離職流程 2 個月完整平台化導入，HR / IT 溝通成本下降 50%</li>
+          <li>高業務量部門人工處理時間降低 20%</li>
+          <li>主導企業私有 AI Workflow PoC 規劃，確立資料邊界控制與 Private Host 部署架構</li>
+        </ul>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot" style="background: var(--slate-light); box-shadow: 0 0 0 1px var(--slate-light);"></div>
+        <div class="timeline-period">2017/7 — 2024/5</div>
+        <div class="timeline-company">紅石資訊有限公司</div>
+        <div class="timeline-role">資深 IT 技術支援工程師 / MIS 程式設計師</div>
+        <ul class="timeline-points">
+          <li>維運 Windows Server、Active Directory、Exchange、VDI 環境，奠定企業基礎架構與權限治理基礎</li>
+          <li>以 AutoIT、Python、PowerShell 開發自動化工具，簡化 IT 支援流程與標準化作業</li>
+          <li>建立標準化部署與維運 SOP，降低重複性支援需求，為後續整合與平台化建立技術基礎</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- STACK -->
+<section id="stack">
+  <div class="container">
+    <p class="section-label">Tech Stack</p>
+    <h2 class="section-title">技術能力範疇</h2>
+    <p class="section-desc">依場景分組，無技能百分比，無排名。</p>
+    <div class="stack-groups">
+      <div class="stack-group">
+        <h4>Architecture</h4>
+        <div class="stack-tags">
+          <span class="stack-tag">Workflow Architecture</span>
+          <span class="stack-tag">API Integration</span>
+          <span class="stack-tag">Event-driven Design</span>
+          <span class="stack-tag">Low-code/Pro-code Hybrid</span>
+        </div>
+      </div>
+      <div class="stack-group">
+        <h4>IAM / Governance</h4>
+        <div class="stack-tags">
+          <span class="stack-tag">RBAC / ABAC</span>
+          <span class="stack-tag">Zero-Trust</span>
+          <span class="stack-tag">Row-Level Security</span>
+          <span class="stack-tag">Column-Level Security</span>
+          <span class="stack-tag">Audit Trail</span>
+          <span class="stack-tag">Policy Engine</span>
+        </div>
+      </div>
+      <div class="stack-group">
+        <h4>Platform / SaaS</h4>
+        <div class="stack-tags">
+          <span class="stack-tag">Lark / Base</span>
+          <span class="stack-tag">Anycross (BaaS)</span>
+          <span class="stack-tag">Outlook</span>
+          <span class="stack-tag">Freshservice</span>
+        </div>
+      </div>
+      <div class="stack-group">
+        <h4>Development</h4>
+        <div class="stack-tags">
+          <span class="stack-tag">Python</span>
+          <span class="stack-tag">PowerShell</span>
+          <span class="stack-tag">JavaScript</span>
+          <span class="stack-tag">REST API</span>
+          <span class="stack-tag">Webhook</span>
+          <span class="stack-tag">HTML / CSS</span>
+        </div>
+      </div>
+      <div class="stack-group">
+        <h4>Infrastructure</h4>
+        <div class="stack-tags">
+          <span class="stack-tag">Windows Server</span>
+          <span class="stack-tag">Active Directory</span>
+          <span class="stack-tag">Exchange</span>
+          <span class="stack-tag">VMware / VDI</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <p class="section-label">Contact</p>
+    <h2 class="section-title">聯絡方式</h2>
+    <p class="section-desc">如需進一步了解專案細節或討論職位可能性，歡迎直接聯繫。</p>
+    <div class="contact-grid">
+
+      <a href="mailto:paicianer@gmail.com" class="contact-link">
+        <div class="contact-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>
+          </svg>
+        </div>
+        <div>
+          <span class="link-label">Email</span>
+          paicianer@gmail.com
+        </div>
+      </a>
+
+      <a href="https://www.linkedin.com/in/dathan-li-97b615300/" target="_blank" rel="noopener noreferrer" class="contact-link">
+        <div class="contact-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/>
+          </svg>
+        </div>
+        <div>
+          <span class="link-label">LinkedIn</span>
+          linkedin.com/in/dathan-li
+        </div>
+      </a>
+
+      <a href="https://github.com/paician" target="_blank" rel="noopener noreferrer" class="contact-link">
+        <div class="contact-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+          </svg>
+        </div>
+        <div>
+          <span class="link-label">GitHub</span>
+          github.com/paician
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>李宗發 Dathan Li · Enterprise Workflow & Platform Engineer</p>
+</footer>
+
+</body>
 </html>
