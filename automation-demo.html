@@ -202,6 +202,10 @@
   a.btn-primary, a.btn-outline {
     text-decoration: none;
   }
+  .btn-sm {
+    font-size: 12px;
+    padding: 0.45rem 0.9rem;
+  }
 
   .divider {
     max-width: 1080px;
@@ -231,6 +235,7 @@
     max-width: 520px;
     margin-bottom: 2.5rem;
   }
+  .section-desc-wide { max-width: 680px; }
 
   #workflow { background: var(--surface); }
   .workflow-grid {
@@ -276,6 +281,31 @@
   }
 
   #workspace { background: var(--bg); }
+  .control-bar {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: var(--shadow-sm);
+  }
+  .control-bar h3 {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--navy);
+    margin-bottom: 0.35rem;
+  }
+  .control-bar-desc {
+    font-size: 13px;
+    color: var(--slate-mid);
+    margin-bottom: 1rem;
+    line-height: 1.6;
+  }
+  .control-bar-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
   .workspace-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -363,6 +393,7 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     gap: 0.75rem;
+    margin-bottom: 1.5rem;
   }
   .metric-card {
     background: var(--white);
@@ -387,19 +418,88 @@
     font-family: var(--mono);
     letter-spacing: -0.02em;
   }
+  .breakdown-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 0.75rem;
+  }
+  .breakdown-panel {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 1.25rem 1.5rem;
+  }
+  .breakdown-panel h3 {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--navy);
+    margin-bottom: 1rem;
+  }
+  .breakdown-row {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-rows: auto auto;
+    gap: 0.25rem 0.75rem;
+    margin-bottom: 0.65rem;
+    align-items: center;
+  }
+  .breakdown-row:last-child { margin-bottom: 0; }
+  .breakdown-label {
+    font-size: 12px;
+    color: var(--slate-mid);
+  }
+  .breakdown-count {
+    font-size: 12px;
+    font-family: var(--mono);
+    color: var(--navy);
+    text-align: right;
+  }
+  .breakdown-bar {
+    grid-column: 1 / -1;
+    height: 6px;
+    background: var(--surface);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+  .breakdown-bar-fill {
+    height: 100%;
+    background: var(--accent);
+    border-radius: 3px;
+    transition: width 0.3s ease;
+    min-width: 0;
+  }
 
-  #payload { background: var(--bg); }
+  #integration { background: var(--bg); }
+  .integration-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1rem;
+  }
+  .integration-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .integration-card h3 {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--navy);
+  }
   .code-block {
     background: var(--navy);
     border-radius: var(--radius-lg);
-    padding: 1.25rem 1.5rem;
+    padding: 1rem 1.15rem;
     overflow-x: auto;
   }
   .code-block pre {
     margin: 0;
     font-family: var(--mono);
-    font-size: 12px;
-    line-height: 1.7;
+    font-size: 11px;
+    line-height: 1.65;
     color: #E2E8F0;
     white-space: pre-wrap;
     word-break: break-word;
@@ -409,10 +509,85 @@
     background: var(--surface);
     border: 1px dashed var(--border);
     border-radius: var(--radius-lg);
-    padding: 2rem 1.5rem;
+    padding: 1.5rem 1rem;
     text-align: center;
-    font-size: 13px;
+    font-size: 12px;
     color: var(--muted);
+    flex: 1;
+  }
+  table.sheets-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 11px;
+  }
+  table.sheets-table th,
+  table.sheets-table td {
+    padding: 0.45rem 0.5rem;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+    white-space: nowrap;
+  }
+  table.sheets-table th {
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--slate-light);
+    background: var(--bg);
+  }
+  .line-card {
+    background: #F7F7F7;
+    border: 1px solid #E0E0E0;
+    border-radius: 12px;
+    overflow: hidden;
+    font-size: 13px;
+  }
+  .line-card-header {
+    background: #06C755;
+    color: #fff;
+    padding: 0.65rem 1rem;
+    font-size: 12px;
+    font-weight: 500;
+  }
+  .line-card-body {
+    padding: 1rem;
+    background: #fff;
+    margin: 0.5rem;
+    border-radius: 8px;
+    border: 1px solid #E8E8E8;
+  }
+  .line-card-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 0.75rem;
+  }
+  .line-field {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.5rem;
+    padding: 0.35rem 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 12px;
+  }
+  .line-field:last-child { border-bottom: none; }
+  .line-field-label {
+    color: var(--slate-light);
+    flex-shrink: 0;
+  }
+  .line-field-value {
+    color: var(--navy);
+    text-align: right;
+    word-break: break-word;
+  }
+  .line-card-placeholder {
+    padding: 1.5rem 1rem;
+    text-align: center;
+    font-size: 12px;
+    color: var(--muted);
+  }
+  .line-simulate-btn {
+    margin-top: auto;
   }
 
   #audit { background: var(--surface); }
@@ -430,13 +605,6 @@
   }
   .audit-log .log-entry { display: block; }
   .audit-empty { color: var(--muted); font-style: italic; }
-
-  #export { background: var(--bg); }
-  .export-actions {
-    display: flex;
-    gap: 0.75rem;
-    flex-wrap: wrap;
-  }
 
   #business { background: var(--surface); }
   .biz-grid {
@@ -569,9 +737,8 @@
       這是一個純前端互動 Demo，展示如何將格式不一致的人工資料，透過自動化清洗、規則判斷與 Payload 產生，轉換成可用於後續 API 串接、報表或審批流程的標準資料。
     </p>
     <div class="hero-cta">
-      <button type="button" class="btn-primary" onclick="loadSampleData()">載入範例資料</button>
-      <button type="button" class="btn-accent" onclick="runCleanup()">執行自動化清洗</button>
-      <button type="button" class="btn-outline" onclick="resetDemo()">重置 Demo</button>
+      <a href="#workspace" class="btn-primary">前往 Demo 工作區</a>
+      <a href="/services.html#pricing" class="btn-outline">查看服務與報價</a>
     </div>
   </div>
 </section>
@@ -601,8 +768,8 @@
       </div>
       <div class="step-card">
         <div class="step-num">4</div>
-        <h3>Payload</h3>
-        <p>產生可送往 Webhook / Lark / Google Sheet 的 JSON</p>
+        <h3>Integration</h3>
+        <p>產生 Webhook JSON、Google Sheets 列與 LINE 通知預覽</p>
       </div>
       <div class="step-card">
         <div class="step-num">5</div>
@@ -620,6 +787,17 @@
     <p class="section-label">Workspace</p>
     <h2 class="section-title">Demo 工作區</h2>
     <p class="section-desc">左側為原始資料，右側為清洗後的標準化結果。</p>
+    <div class="control-bar">
+      <h3>Demo 操作</h3>
+      <p class="control-bar-desc">依序載入範例資料、執行清洗，再查看 Dashboard、Integration Preview 與 Audit Log。</p>
+      <div class="control-bar-actions">
+        <button type="button" class="btn-primary btn-sm" onclick="loadSampleData()">載入範例資料</button>
+        <button type="button" class="btn-accent btn-sm" onclick="runCleanup()">執行自動化清洗</button>
+        <button type="button" class="btn-outline btn-sm" onclick="resetDemo()">重置 Demo</button>
+        <button type="button" class="btn-outline btn-sm" onclick="exportJSON()">Export JSON</button>
+        <button type="button" class="btn-outline btn-sm" onclick="exportCSV()">Export CSV</button>
+      </div>
+    </div>
     <div class="workspace-grid">
       <div class="panel">
         <div class="panel-header">
@@ -706,19 +884,94 @@
         <div class="metric-value" id="metric-payloads">0</div>
       </div>
     </div>
+    <div class="breakdown-grid">
+      <div class="breakdown-panel">
+        <h3>Risk Breakdown</h3>
+        <div id="breakdown-risk"></div>
+      </div>
+      <div class="breakdown-panel">
+        <h3>Department Breakdown</h3>
+        <div id="breakdown-dept"></div>
+      </div>
+      <div class="breakdown-panel">
+        <h3>Workflow Routing</h3>
+        <div id="breakdown-workflow"></div>
+      </div>
+    </div>
   </div>
 </section>
 
 <hr class="divider">
 
-<section id="payload">
+<section id="integration">
   <div class="container">
-    <p class="section-label">Payload</p>
-    <h2 class="section-title">Payload Preview</h2>
-    <p class="section-desc">清洗後前 3 筆資料的 API Payload 預覽。</p>
-    <div class="code-empty" id="payload-empty">尚未產生 Payload，請先載入資料並執行清洗。</div>
-    <div class="code-block" id="payload-block" hidden>
-      <pre><code id="payload-code"></code></pre>
+    <p class="section-label">Integration</p>
+    <h2 class="section-title">Integration Preview / 串接格式預覽</h2>
+    <p class="section-desc section-desc-wide">清洗後資料可以轉成 Webhook JSON、Google Sheets Row 或 LINE 通知卡片格式。此 Demo 僅做格式預覽，不呼叫任何真實外部 API。</p>
+    <div class="integration-grid">
+      <div class="integration-card">
+        <h3>Webhook JSON Payload</h3>
+        <div class="code-empty" id="webhook-empty">尚未產生 Payload，請先載入資料並執行清洗。</div>
+        <div class="code-block" id="webhook-block" hidden>
+          <pre><code id="webhook-code"></code></pre>
+        </div>
+      </div>
+      <div class="integration-card">
+        <h3>Google Sheets Row Preview</h3>
+        <div class="code-empty" id="sheets-empty">尚未產生 Sheets 預覽，請先執行清洗。</div>
+        <div class="table-wrap" id="sheets-wrap" hidden>
+          <table class="sheets-table">
+            <thead>
+              <tr>
+                <th>workflow</th>
+                <th>requester</th>
+                <th>email</th>
+                <th>department</th>
+                <th>request_type</th>
+                <th>amount</th>
+                <th>risk_level</th>
+                <th>next_step</th>
+              </tr>
+            </thead>
+            <tbody id="sheets-tbody"></tbody>
+          </table>
+        </div>
+      </div>
+      <div class="integration-card">
+        <h3>LINE Notification Preview</h3>
+        <div class="line-card" id="line-card">
+          <div class="line-card-header">LINE</div>
+          <div class="line-card-body" id="line-card-body" hidden>
+            <div class="line-card-title" id="line-title">自動化流程通知</div>
+            <div class="line-field">
+              <span class="line-field-label">申請人</span>
+              <span class="line-field-value" id="line-requester">—</span>
+            </div>
+            <div class="line-field">
+              <span class="line-field-label">部門</span>
+              <span class="line-field-value" id="line-department">—</span>
+            </div>
+            <div class="line-field">
+              <span class="line-field-label">類型</span>
+              <span class="line-field-value" id="line-request-type">—</span>
+            </div>
+            <div class="line-field">
+              <span class="line-field-label">風險</span>
+              <span class="line-field-value" id="line-risk-level">—</span>
+            </div>
+            <div class="line-field">
+              <span class="line-field-label">下一步</span>
+              <span class="line-field-value" id="line-next-step">—</span>
+            </div>
+            <div class="line-field">
+              <span class="line-field-label">金額</span>
+              <span class="line-field-value" id="line-amount">—</span>
+            </div>
+          </div>
+          <div class="line-card-placeholder" id="line-placeholder">執行清洗後顯示通知卡片預覽</div>
+        </div>
+        <button type="button" class="btn-accent btn-sm line-simulate-btn" onclick="simulateLineNotification()">Simulate LINE Notification</button>
+      </div>
     </div>
   </div>
 </section>
@@ -738,20 +991,6 @@
 
 <hr class="divider">
 
-<section id="export">
-  <div class="container">
-    <p class="section-label">Export</p>
-    <h2 class="section-title">匯出模擬</h2>
-    <p class="section-desc">將清洗後資料匯出為 JSON 或 CSV 檔案。</p>
-    <div class="export-actions">
-      <button type="button" class="btn-primary" onclick="exportJSON()">Export Cleaned JSON</button>
-      <button type="button" class="btn-outline" onclick="exportCSV()">Export Cleaned CSV</button>
-    </div>
-  </div>
-</section>
-
-<hr class="divider">
-
 <section id="business">
   <div class="container">
     <p class="section-label">Services</p>
@@ -763,8 +1002,8 @@
         <p>將人工整理的資料轉為可重複執行的規則</p>
       </div>
       <div class="biz-card">
-        <h3>API 串接</h3>
-        <p>將清洗後資料轉成可送往 Webhook 或外部系統的 Payload</p>
+        <h3>API / Webhook 串接格式設計</h3>
+        <p>將清洗後資料轉成可送往 Webhook、Google Sheets 或外部系統的標準 Payload；正式串接需依實際 API、權限與後端安全設計評估。</p>
       </div>
       <div class="biz-card">
         <h3>內部 Dashboard</h3>
@@ -773,6 +1012,10 @@
       <div class="biz-card">
         <h3>稽核紀錄</h3>
         <p>保留每一步處理紀錄，降低交接與追查成本</p>
+      </div>
+      <div class="biz-card">
+        <h3>LINE 通知卡片預覽</h3>
+        <p>展示流程異常或高風險項目如何轉為通知卡片；正式發送需透過 LINE Messaging API 與後端或中繼服務處理，不在前端暴露 token。</p>
       </div>
     </div>
   </div>
@@ -812,6 +1055,9 @@
     { raw_name: '吳佩君', email: 'wu@corp.tw', dept: 'I.T.', request_type: 'access_request', amount: '15,000', date: '2026-05-22', status: 'rejected' },
     { raw_name: '周建國', email: 'zhou@corp.tw', dept: 'fin', request_type: 'reimbursement', amount: '0', date: '20260523', status: 'waiting' }
   ];
+
+  var RISK_LABELS = ['Low', 'Medium', 'High'];
+  var DEPT_LABELS = ['Finance', 'HR', 'IT', 'Sales', 'Unknown'];
 
   var rawRecords = [];
   var cleanedRecords = [];
@@ -982,6 +1228,73 @@
     };
   }
 
+  function getLinePreviewRecord() {
+    if (!cleanedRecords.length) return null;
+    for (var i = 0; i < cleanedRecords.length; i++) {
+      if (cleanedRecords[i].risk_level === 'High') return cleanedRecords[i];
+    }
+    return cleanedRecords[0];
+  }
+
+  function renderBreakdownRows(containerId, items) {
+    var container = document.getElementById(containerId);
+    var max = 0;
+    items.forEach(function (item) {
+      if (item.count > max) max = item.count;
+    });
+    if (max === 0) max = 1;
+
+    container.innerHTML = items.map(function (item) {
+      var pct = (item.count / max) * 100;
+      return '<div class="breakdown-row">' +
+        '<span class="breakdown-label">' + escapeHtml(item.label) + '</span>' +
+        '<span class="breakdown-count">' + item.count + '</span>' +
+        '<div class="breakdown-bar"><div class="breakdown-bar-fill" style="width:' + pct + '%"></div></div>' +
+        '</div>';
+    }).join('');
+  }
+
+  function resetBreakdowns() {
+    renderBreakdownRows('breakdown-risk', RISK_LABELS.map(function (l) { return { label: l, count: 0 }; }));
+    renderBreakdownRows('breakdown-dept', DEPT_LABELS.map(function (l) { return { label: l, count: 0 }; }));
+    document.getElementById('breakdown-workflow').innerHTML =
+      '<div class="breakdown-row"><span class="breakdown-label">—</span><span class="breakdown-count">0</span>' +
+      '<div class="breakdown-bar"><div class="breakdown-bar-fill" style="width:0%"></div></div></div>';
+  }
+
+  function updateBreakdowns() {
+    if (!cleanedRecords.length) {
+      resetBreakdowns();
+      return;
+    }
+
+    var riskCounts = { Low: 0, Medium: 0, High: 0 };
+    var deptCounts = { Finance: 0, HR: 0, IT: 0, Sales: 0, Unknown: 0 };
+    var workflowCounts = {};
+
+    cleanedRecords.forEach(function (r) {
+      riskCounts[r.risk_level] = (riskCounts[r.risk_level] || 0) + 1;
+      deptCounts[r.department] = (deptCounts[r.department] || 0) + 1;
+      workflowCounts[r.next_step] = (workflowCounts[r.next_step] || 0) + 1;
+    });
+
+    renderBreakdownRows('breakdown-risk', RISK_LABELS.map(function (l) {
+      return { label: l, count: riskCounts[l] || 0 };
+    }));
+    renderBreakdownRows('breakdown-dept', DEPT_LABELS.map(function (l) {
+      return { label: l, count: deptCounts[l] || 0 };
+    }));
+
+    var workflowItems = Object.keys(workflowCounts).sort().map(function (key) {
+      return { label: key, count: workflowCounts[key] };
+    });
+    if (!workflowItems.length) {
+      resetBreakdowns();
+      return;
+    }
+    renderBreakdownRows('breakdown-workflow', workflowItems);
+  }
+
   function renderRawTable() {
     var empty = document.getElementById('raw-empty');
     var table = document.getElementById('raw-table');
@@ -1056,6 +1369,7 @@
     document.getElementById('metric-high').textContent = String(highRisk);
     document.getElementById('metric-manager').textContent = String(managerApproval);
     document.getElementById('metric-payloads').textContent = String(total);
+    updateBreakdowns();
   }
 
   function resetMetrics() {
@@ -1065,24 +1379,63 @@
     document.getElementById('metric-high').textContent = '0';
     document.getElementById('metric-manager').textContent = '0';
     document.getElementById('metric-payloads').textContent = '0';
+    resetBreakdowns();
   }
 
-  function renderPayload() {
-    var emptyEl = document.getElementById('payload-empty');
-    var blockEl = document.getElementById('payload-block');
-    var codeEl = document.getElementById('payload-code');
+  function renderIntegration() {
+    var webhookEmpty = document.getElementById('webhook-empty');
+    var webhookBlock = document.getElementById('webhook-block');
+    var webhookCode = document.getElementById('webhook-code');
+    var sheetsEmpty = document.getElementById('sheets-empty');
+    var sheetsWrap = document.getElementById('sheets-wrap');
+    var sheetsTbody = document.getElementById('sheets-tbody');
+    var lineBody = document.getElementById('line-card-body');
+    var linePlaceholder = document.getElementById('line-placeholder');
 
     if (!cleanedRecords.length) {
-      emptyEl.hidden = false;
-      blockEl.hidden = true;
-      codeEl.textContent = '';
+      webhookEmpty.hidden = false;
+      webhookBlock.hidden = true;
+      webhookCode.textContent = '';
+      sheetsEmpty.hidden = false;
+      sheetsWrap.hidden = true;
+      sheetsTbody.innerHTML = '';
+      lineBody.hidden = true;
+      linePlaceholder.hidden = false;
       return;
     }
 
     var previews = cleanedRecords.slice(0, 3).map(buildPayload);
-    emptyEl.hidden = true;
-    blockEl.hidden = false;
-    codeEl.textContent = JSON.stringify(previews, null, 2);
+    webhookEmpty.hidden = true;
+    webhookBlock.hidden = false;
+    webhookCode.textContent = JSON.stringify(previews, null, 2);
+
+    var sheetRows = cleanedRecords.slice(0, 5).map(buildPayload);
+    sheetsEmpty.hidden = true;
+    sheetsWrap.hidden = false;
+    sheetsTbody.innerHTML = sheetRows.map(function (p) {
+      return '<tr>' +
+        '<td>' + escapeHtml(p.workflow) + '</td>' +
+        '<td>' + escapeHtml(p.requester) + '</td>' +
+        '<td>' + escapeHtml(p.email) + '</td>' +
+        '<td>' + escapeHtml(p.department) + '</td>' +
+        '<td>' + escapeHtml(p.request_type) + '</td>' +
+        '<td>' + escapeHtml(p.amount) + '</td>' +
+        '<td>' + escapeHtml(p.risk_level) + '</td>' +
+        '<td>' + escapeHtml(p.next_step) + '</td>' +
+        '</tr>';
+    }).join('');
+
+    var lineRecord = getLinePreviewRecord();
+    linePlaceholder.hidden = true;
+    lineBody.hidden = false;
+    document.getElementById('line-title').textContent =
+      lineRecord.risk_level === 'High' ? '高風險資料待確認' : '自動化流程通知';
+    document.getElementById('line-requester').textContent = lineRecord.name;
+    document.getElementById('line-department').textContent = lineRecord.department;
+    document.getElementById('line-request-type').textContent = lineRecord.request_type;
+    document.getElementById('line-risk-level').textContent = lineRecord.risk_level;
+    document.getElementById('line-next-step').textContent = lineRecord.next_step;
+    document.getElementById('line-amount').textContent = String(lineRecord.amount);
   }
 
   function downloadBlob(filename, content, mime) {
@@ -1113,7 +1466,7 @@
     renderRawTable();
     renderCleanTable();
     resetMetrics();
-    renderPayload();
+    renderIntegration();
     addAudit('Loaded 8 sample records');
   };
 
@@ -1126,13 +1479,16 @@
     cleanedRecords = rawRecords.map(cleanRecord);
     renderCleanTable();
     updateDashboard();
-    renderPayload();
+    renderIntegration();
 
     addAudit('Normalized department and request type values');
     addAudit('Validated email format and parsed amount fields');
     addAudit('Applied workflow routing rules');
     addAudit('Generated API payload preview');
     addAudit('Updated dashboard metrics');
+    addAudit('Updated risk, department and workflow breakdowns');
+    addAudit('Prepared Google Sheets row preview');
+    addAudit('Prepared LINE notification preview');
   };
 
   window.resetDemo = function () {
@@ -1142,7 +1498,7 @@
     renderRawTable();
     renderCleanTable();
     resetMetrics();
-    renderPayload();
+    renderIntegration();
     renderAudit();
     addAudit('Demo reset');
   };
@@ -1154,6 +1510,7 @@
     }
     var payloads = cleanedRecords.map(buildPayload);
     downloadBlob('cleaned-data.json', JSON.stringify(payloads, null, 2), 'application/json');
+    addAudit('Exported cleaned JSON');
   };
 
   window.exportCSV = function () {
@@ -1184,9 +1541,20 @@
       lines.push(row.join(','));
     });
     downloadBlob('cleaned-data.csv', lines.join('\n'), 'text/csv;charset=utf-8');
+    addAudit('Exported cleaned CSV');
+  };
+
+  window.simulateLineNotification = function () {
+    if (!cleanedRecords.length) {
+      showToast('請先執行自動化清洗');
+      return;
+    }
+    addAudit('Simulated LINE notification card generated');
   };
 
   window.showToast = showToast;
+
+  resetBreakdowns();
 })();
 </script>
 </body>
