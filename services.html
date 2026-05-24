@@ -410,6 +410,8 @@
     font-size: 13px;
     color: var(--slate-mid);
     margin-bottom: 1.5rem;
+    max-width: 640px;
+    line-height: 1.75;
   }
   .pricing-table {
     border: 1px solid var(--border);
@@ -420,14 +422,28 @@
   .pricing-row {
     display: flex;
     flex-direction: column;
-    gap: 0.35rem;
+    gap: 0.5rem;
     padding: 1.25rem 1.5rem;
     border-bottom: 1px solid var(--border);
   }
   .pricing-row:last-child { border-bottom: none; }
+  .pricing-row-header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+  @media (min-width: 640px) {
+    .pricing-row-header {
+      flex-direction: row;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 1.5rem;
+    }
+  }
   .pricing-label {
-    font-size: 13px;
-    color: var(--slate-mid);
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--navy);
   }
   .pricing-value {
     font-size: 14px;
@@ -435,6 +451,22 @@
     color: var(--accent);
     font-family: var(--mono);
     letter-spacing: 0.01em;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .pricing-desc {
+    font-size: 12.5px;
+    color: var(--slate-mid);
+    line-height: 1.65;
+  }
+  .pricing-disclaimer {
+    font-size: 12.5px;
+    color: var(--slate-light);
+    margin-top: 1.25rem;
+    line-height: 1.75;
+    max-width: 680px;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border);
   }
 
   #not-a-fit { background: var(--bg); }
@@ -744,25 +776,45 @@
   <div class="container">
     <p class="section-label">Pricing</p>
     <h2 class="section-title">參考報價</h2>
-    <p class="pricing-note">實際依需求評估</p>
+    <p class="pricing-note">以下為常見小型自動化專案的起始參考，實際費用會依資料來源、流程複雜度、API 限制、權限控管、部署方式與維護需求評估。</p>
     <div class="pricing-table">
       <div class="pricing-row">
-        <span class="pricing-label">小型腳本 / Excel / CSV 自動化</span>
-        <span class="pricing-value">NT$3,000–8,000</span>
+        <div class="pricing-row-header">
+          <span class="pricing-label">流程自動化健檢</span>
+          <span class="pricing-value">NT$1,500–3,000 / 次</span>
+        </div>
+        <p class="pricing-desc">適合先釐清流程、盤點資料來源與評估是否值得自動化；若後續委託開發，可折抵部分專案費。</p>
       </div>
       <div class="pricing-row">
-        <span class="pricing-label">API 串接 / 表單通知流程</span>
-        <span class="pricing-value">NT$8,000–20,000</span>
+        <div class="pricing-row-header">
+          <span class="pricing-label">小型腳本 / Excel / CSV 自動化</span>
+          <span class="pricing-value">NT$5,000 起</span>
+        </div>
+        <p class="pricing-desc">適合單一資料來源、明確規則、固定格式整理、批次清洗或報表產出。</p>
       </div>
       <div class="pricing-row">
-        <span class="pricing-label">小型內部後台 / Dashboard</span>
-        <span class="pricing-value">NT$20,000–60,000</span>
+        <div class="pricing-row-header">
+          <span class="pricing-label">API 串接 / 表單通知流程</span>
+          <span class="pricing-value">NT$12,000 起</span>
+        </div>
+        <p class="pricing-desc">適合單一或少量系統串接、Webhook、表單送出後通知、資料同步與狀態更新。</p>
       </div>
       <div class="pricing-row">
-        <span class="pricing-label">Lark / Anycross / Base 流程設計</span>
-        <span class="pricing-value">依需求評估</span>
+        <div class="pricing-row-header">
+          <span class="pricing-label">小型內部後台 / Dashboard</span>
+          <span class="pricing-value">NT$30,000 起</span>
+        </div>
+        <p class="pricing-desc">適合需要查詢、篩選、匯出、狀態管理或簡易權限控管的內部工具。</p>
+      </div>
+      <div class="pricing-row">
+        <div class="pricing-row-header">
+          <span class="pricing-label">Lark / Anycross / Base 流程設計</span>
+          <span class="pricing-value">專案評估</span>
+        </div>
+        <p class="pricing-desc">適合審批流程、通知卡片、Base 資料流、權限分流與跨系統營運流程整合。</p>
       </div>
     </div>
+    <p class="pricing-disclaimer">以上價格不包含不明確需求的長期探索、第三方平台付費、雲端主機費、企業帳號授權費與長期維護費。若需求尚未明確，建議先從「流程自動化健檢」開始。</p>
   </div>
 </section>
 
